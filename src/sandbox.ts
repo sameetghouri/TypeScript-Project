@@ -121,3 +121,26 @@ const ugreet =(user: {name: string, uid:strornum}) =>{
 const igreet =(user: objwithnam) =>{
     console.log(`${user.name} says hello`)
 }
+
+//Funtion Signature
+//Example:1
+let ygreet: (a:string, b:string)=>void
+
+greet =(name:string,greeting:string)=>{
+console.log(`${name} says ${greeting}`)
+}
+//Example:2
+let calc: (a:number, b:number, c:string)=>number;
+
+calc = (numone:number, numtwo:number, action:string)=>{
+if (action ==='add'){
+    return numone + numtwo
+}
+else{ return numone+numtwo}
+}
+//Example:3
+let logDetails: (obj: {name:string, age:number }) => void;
+type person = {name:string, age:number }
+logDetails = (ninja:person)=>{
+    console.log(`${ninja.name} is ${ninja.age} years old`)
+}

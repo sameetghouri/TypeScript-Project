@@ -93,3 +93,24 @@ const ugreet = (user) => {
 const igreet = (user) => {
     console.log(`${user.name} says hello`);
 };
+//Funtion Signature
+//Example:1
+let ygreet;
+greet = (name, greeting) => {
+    console.log(`${name} says ${greeting}`);
+};
+//Example:2
+let calc;
+calc = (numone, numtwo, action) => {
+    if (action === 'add') {
+        return numone + numtwo;
+    }
+    else {
+        return numone + numtwo;
+    }
+};
+//Example:3
+let logDetails;
+logDetails = (ninja) => {
+    console.log(`${ninja.name} is ${ninja.age} years old`);
+};
