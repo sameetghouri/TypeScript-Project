@@ -85,5 +85,39 @@ console.log(ninjas2)
 ninjas2={name:25,age:'yoshi'}
 console.log(ninjas2)
 
+//Funtion Basics 
+let greet: Function;
+greet = ()=>{
+    console.log('hello, again')
+}
 
+const add =(a:number, b:number, c?:number|string)=>{   // ? is the optionl parameter
+console.log(a+b);
+console.log(c) //if no value passed, c would be undefined
+}
+add(5,15);
 
+const add1 =(a:number, b:number, c:number|string=10): void =>{
+    console.log(a+b);
+    console.log(c) //c would be 20, it will override the initial value 10
+    }
+add1(5,15,20);
+
+const minus =(a:number, b:number):number => {
+ return a+b;
+}
+let res1 = minus(10,7) //res1's type would be the return type of minus which is number
+
+//Type Alias 
+type strornum = string|number;
+type objwithnam = {name: string, uid:strornum}
+
+const logDet =(uid: strornum, item: string) =>{
+    console.log(`${item} has a uid of ${uid}`)
+}
+const ugreet =(user: {name: string, uid:strornum}) =>{  
+    console.log(`${user.name} says hello`)
+}
+const igreet =(user: objwithnam) =>{
+    console.log(`${user.name} says hello`)
+}
