@@ -126,7 +126,7 @@ const igreet =(user: objwithnam) =>{
 //Example:1
 let ygreet: (a:string, b:string)=>void
 
-greet =(name:string,greeting:string)=>{
+ygreet =(name:string,greeting:string)=>{
 console.log(`${name} says ${greeting}`)
 }
 //Example:2

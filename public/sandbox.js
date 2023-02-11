@@ -96,7 +96,7 @@ const igreet = (user) => {
 //Funtion Signature
 //Example:1
 let ygreet;
-greet = (name, greeting) => {
+ygreet = (name, greeting) => {
     console.log(`${name} says ${greeting}`);
 };
 //Example:2
