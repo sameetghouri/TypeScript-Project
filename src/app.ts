@@ -1,26 +1,11 @@
+import {Invoice} from "./classes/invoice.js"
 // const anchor = document.querySelector('a')!;// "!" means that "a" is not null it will give some value 
 // // if(anchor){
 // // console.log(anchor.href)};
 // console.log(anchor)
 
-class Invoice {
-    client:string;
-    details:string;
-    amount:number;
 
-    constructor(c:string,d:string,a:number){
-        this.client=c;
-        this.details=d;
-        this.amount=a;
-    }
 
-    format(){
-        return `${this.client} owes $${this.amount} for ${this.details}`
-    }
-}
-const inOne = new Invoice('mario','work on the  website',250)
-const inTwo = new Invoice('yoshi','work on the website',300)
-console.log(inOne,inTwo)
 
 // const form = document.querySelector('form')
 const form = document.querySelector('.new-item-form') as HTMLFormElement; //Type Casting. Casting an element's type
@@ -40,3 +25,17 @@ form.addEventListener('submit',(e:Event)=>{
         amount.valueAsNumber //ValueAsNumber would not turn the number into a string
     )
 })
+
+//Classes
+
+const inOne = new Invoice('mario','work on the  website',250)
+const inTwo = new Invoice('yoshi','work on the website',300)
+
+let invoices: Invoice[]=[];
+invoices.push(inOne);
+invoices.push(inTwo);
+
+invoices.forEach(i =>{
+    console.log(i.client,i.amount,i.format())
+})
+
