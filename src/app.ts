@@ -3,9 +3,27 @@
 // // console.log(anchor.href)};
 // console.log(anchor)
 
+class Invoice {
+    client:string;
+    details:string;
+    amount:number;
+
+    constructor(c:string,d:string,a:number){
+        this.client=c;
+        this.details=d;
+        this.amount=a;
+    }
+
+    format(){
+        return `${this.client} owes $${this.amount} for ${this.details}`
+    }
+}
+const inOne = new Invoice('mario','work on the  website',250)
+const inTwo = new Invoice('yoshi','work on the website',300)
+console.log(inOne,inTwo)
+
 // const form = document.querySelector('form')
 const form = document.querySelector('.new-item-form') as HTMLFormElement; //Type Casting. Casting an element's type
-console.log(form.children)
 
 //inputs
 const type = document.querySelector("#type") as HTMLSelectElement
