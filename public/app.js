@@ -1,9 +1,10 @@
 import { Invoice } from "./classes/invoice.js";
+import { ListTemplate } from "./classes/listTemplate.js";
 import { Payment } from "./classes/payment.js";
 // const anchor = document.querySelector('a')!;// "!" means that "a" is not null it will give some value 
 // // if(anchor){
 // // console.log(anchor.href)};
-// console.log(anchor)
+// console.log(anchor)/
 // const form = document.querySelector('form')
 const form = document.querySelector('.new-item-form'); //Type Casting. Casting an element's type
 //inputs
@@ -11,6 +12,9 @@ const type = document.querySelector("#type");
 const tofrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+//list template instance
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc;
@@ -20,6 +24,7 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
+    list.render(doc, type.value, 'end');
     console.log(doc);
     // console.log(
     //     type.value,
