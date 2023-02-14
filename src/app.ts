@@ -23,11 +23,15 @@ const ul = document.querySelector('ul')!;
 const list = new ListTemplate(ul);
 form.addEventListener('submit',(e:Event)=>{
     e.preventDefault();
+    let values:[string,string,number]
+    values =[tofrom.value,details.value,amount.valueAsNumber]
     let doc: hasFormater;
     if (type.value ==='invoice'){
-        doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+        // doc =new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Invoice(...values)
     }else{
-        doc =new Payment(tofrom.value,details.value,amount.valueAsNumber)
+        // doc =new Payment(tofrom.value,details.value,amount.valueAsNumber)
+        doc =new Payment(...values)
     }
     list.render(doc,type.value,'end')
     console.log(doc)
@@ -86,3 +90,57 @@ let docs: hasFormater[]=[];
 docs.push(docOne);
 docs.push(docTwo);
 console.log(docs)
+ 
+//GENERICS
+// const addUID1 = <T>(obj: T)=>{
+// const addUID1 = <T extends object>(obj: T)=>{
+    const addUID1 = <T extends {name:string}>(obj: T)=>{
+    let uid= Math.floor(Math.random()*100);
+    return {...obj, uid}
+}
+let doc1 = addUID1({name:'yoshi',age:25}); 
+
+console.log(doc1.age)
+//WITH INTERFACES
+interface Resouce<T> {
+    uid: number;
+    resourceName:string;
+    data:T;
+}
+const doc3: Resouce<object>={
+    uid:1,
+    resourceName:'person',
+    data:{name:'shaun'}
+}
+const doc4: Resouce<string[]>={
+    uid:12,
+    resourceName:'shoppingList',
+    data:['vege','tuna']
+}
+console.log(doc3,doc4)
+
+//ENUMS
+enum resoursetype{Book,Author,Film,Person}
+interface Resouce1<T> {
+    uid: number;
+    resourceName:resoursetype;
+    data:T;
+}
+const doc5: Resouce1<object>={
+    uid:1,
+    resourceName:resoursetype.Book,
+    data:{name:'shaun'}
+}
+const doc6: Resouce1<string[]>={
+    uid:12,
+    resourceName:resoursetype.Person,
+    data:['vege','tuna']
+}
+console.log(doc5,doc6)
+
+//TUPLES
+let tup: [string,number,boolean]=['ryu',25,true];
+tup[0]='ken'
+
+let student:[string,number];
+student =['lee',285]

@@ -17,12 +17,16 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        // doc =new Invoice(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        // doc =new Payment(tofrom.value,details.value,amount.valueAsNumber)
+        doc = new Payment(...values);
     }
     list.render(doc, type.value, 'end');
     console.log(doc);
@@ -67,3 +71,47 @@ let docs = [];
 docs.push(docOne);
 docs.push(docTwo);
 console.log(docs);
+//GENERICS
+// const addUID1 = <T>(obj: T)=>{
+// const addUID1 = <T extends object>(obj: T)=>{
+const addUID1 = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let doc1 = addUID1({ name: 'yoshi', age: 25 });
+console.log(doc1.age);
+const doc3 = {
+    uid: 1,
+    resourceName: 'person',
+    data: { name: 'shaun' }
+};
+const doc4 = {
+    uid: 12,
+    resourceName: 'shoppingList',
+    data: ['vege', 'tuna']
+};
+console.log(doc3, doc4);
+//ENUMS
+var resoursetype;
+(function (resoursetype) {
+    resoursetype[resoursetype["Book"] = 0] = "Book";
+    resoursetype[resoursetype["Author"] = 1] = "Author";
+    resoursetype[resoursetype["Film"] = 2] = "Film";
+    resoursetype[resoursetype["Person"] = 3] = "Person";
+})(resoursetype || (resoursetype = {}));
+const doc5 = {
+    uid: 1,
+    resourceName: resoursetype.Book,
+    data: { name: 'shaun' }
+};
+const doc6 = {
+    uid: 12,
+    resourceName: resoursetype.Person,
+    data: ['vege', 'tuna']
+};
+console.log(doc5, doc6);
+//TUPLES
+let tup = ['ryu', 25, true];
+tup[0] = 'ken';
+let student;
+student = ['lee', 285];
