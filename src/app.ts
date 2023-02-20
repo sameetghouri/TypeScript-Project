@@ -145,4 +145,4 @@ tup[0]='ken'
 let student:[string,number];
 student =['lee',285]
 let studen1t:[string,number];
-student =['lee',22]
+studen1t =['lee',22]
