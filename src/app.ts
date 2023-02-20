@@ -144,5 +144,5 @@ tup[0]='ken'
 
 let student:[string,number];
 student =['lee',285]
-let studen1t:[string,number];
-studen1t =['lee',22]
+let student2:[string,number];
+student2 =['lee',22]
