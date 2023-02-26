@@ -46,7 +46,16 @@ form.addEventListener('submit',(e:Event)=>{
 
 //Classes
 
+const inOne = new Invoice('mario','work on the  website',250)
+const inTwo = new Invoice('yoshi','work on the website',300)
 
+let invoices: Invoice[]=[];
+invoices.push(inOne);
+invoices.push(inTwo);
+
+invoices.forEach(i =>{
+    console.log(i.client,i.amount,i.format())
+})
 
 //Interface 
 interface isPerson {
