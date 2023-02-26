@@ -7,7 +7,7 @@ age = 40;
 isBlackBelt = true;
 
 //Arrays
-let names = ['luigi','mario', 'yoshi' ];
+let names = ['luigi','mario','yoshi'];
 names.push ('load') //can not assign the number value
 
 let numbers = [10,40,50]
@@ -117,7 +117,7 @@ const logDet =(uid: strornum, item: string) =>{
 }
 const ugreet =(user: {name: string, uid:strornum}) =>{  
     console.log(`${user.name} says hello`)
-}
+}  
 const igreet =(user: objwithnam) =>{
     console.log(`${user.name} says hello`)
 }
